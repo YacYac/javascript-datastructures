@@ -79,7 +79,10 @@ function LinkedList() {
       return null; //{11}
     }
   };
-  this.remove = function (element) {};
+  this.remove = function (element) {
+    var index = this.indexOf(element);
+    return this.removeAt(index);
+  };
   this.indexOf = function (element) {
     var current = head, //{1}
         index = -1;
