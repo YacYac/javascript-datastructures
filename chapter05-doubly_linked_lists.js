@@ -10,6 +10,9 @@ function DoublyLinkedList() {
   var tail = null; //NEW
 
   //methods here
+  this.append = function (element) {
+    return this.insert(element, this.length);
+  };
   this.insert = function (position, element) {
     //check for out-of-bounds values
     if (position >= 0 && position <= length) {
@@ -49,5 +52,10 @@ function DoublyLinkedList() {
     } else {
       return false;
     }
-  }  
+  }
 }
+
+var doublyLinkedList = new DoublyLinkedList();
+doublyLinkedList.append(14);
+doublyLinkedList.append(15);
+console.log(doublyLinkedList);
