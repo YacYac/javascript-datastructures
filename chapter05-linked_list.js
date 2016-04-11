@@ -113,7 +113,9 @@ function LinkedList() {
     }
     return string;              //{6}
   };
-  this.print = function () {};
+  this.getHead = function () {
+    return head;
+  };
 }
 
 var list = new LinkedList();
