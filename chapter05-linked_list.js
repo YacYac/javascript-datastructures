@@ -97,8 +97,12 @@ function LinkedList() {
 
     return -1;
   };
-  this.isEmpty = function () {};
-  this.size = function () {};
+  this.isEmpty = function () {
+    return length === 0;
+  };
+  this.size = function () {
+    return length;
+  };
   this.toString = function () {
     var current = head, //{1}
         string = '';    //{2}
