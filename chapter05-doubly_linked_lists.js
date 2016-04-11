@@ -9,10 +9,10 @@ function DoublyLinkedList() {
   var head = null;
   var tail = null; //NEW
 
-  //methods here
   this.append = function (element) {
     return this.insert(element, this.length);
   };
+
   this.insert = function (position, element) {
     //check for out-of-bounds values
     if (position >= 0 && position <= length) {
@@ -53,6 +53,7 @@ function DoublyLinkedList() {
       return false;
     }
   };
+
   this.removeAt = function (position) {
     //look for out-of-bounds values
     if (position > -1 && position < length){
@@ -90,7 +91,13 @@ function DoublyLinkedList() {
     } else {
       return null;
     }
-  }
+  };
+
+  this.remove = function (element) {
+    var index = this.indexOf(element);
+    return this.removeAt(index);
+  };
+
 };
 
 var doublyLinkedList = new DoublyLinkedList();
