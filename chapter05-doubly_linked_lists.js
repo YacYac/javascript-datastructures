@@ -52,8 +52,46 @@ function DoublyLinkedList() {
     } else {
       return false;
     }
+  };
+  this.removeAt = function (position) {
+    //look for out-of-bounds values
+    if (position > -1 && position < length){
+      var current = head,
+          previous,
+          index = 0;
+
+      //removing first item
+      if (position === 0) {
+        head = current.next;
+
+        //if there is only one item, update tail
+        if (length === 1) {
+          tail = null;
+        } else {
+          head.prev = null;
+        }
+      }
+    } else if (position === length-1) { //last item
+      current = tail;
+      tail = current.prev;
+      tail.next = null;
+    } else {
+      while (index++ < position) {
+        previous = current;
+        current = current.next;
+      }
+
+      //link previous with current's next - skip it
+      previous.next = current.next;
+      current.next.prev = previous;
+    }
+
+    length--;
+    return current.element;
+  } else {
+    return null;
   }
-}
+};
 
 var doublyLinkedList = new DoublyLinkedList();
 doublyLinkedList.append(14);
