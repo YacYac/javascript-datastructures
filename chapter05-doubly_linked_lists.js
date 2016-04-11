@@ -70,7 +70,6 @@ function DoublyLinkedList() {
         } else {
           head.prev = null;
         }
-      }
     } else if (position === length-1) { //last item
       current = tail;
       tail = current.prev;
