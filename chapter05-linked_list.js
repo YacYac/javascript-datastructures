@@ -38,3 +38,5 @@ function LinkedList() {
 }
 
 var list = new LinkedList();
+list.append(15);
+list.append(10);
