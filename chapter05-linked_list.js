@@ -27,8 +27,58 @@ function LinkedList() {
 
     length++; //update size of the list //{6}
   };
-  this.insert = function (position, element) {};
-  this.removeAt = function (position) {};
+  this.insert = function (position, element) {
+    //check for out-of-bounds values
+    if position > -1 && position < length { //{1}
+      var node = new Node(element),
+          current = head,
+          previous,
+          index = 0;
+
+      if (position === 0) { //add on first position
+        node.next = current; //{2}
+        head = node;
+      } else {
+        while (index++ < position) { //{3}
+          previous = current;
+          current = current.next;
+        }
+        node.next = current; //{4}
+        previous.next = node; //{5}
+      }
+
+      length++; //update size of list
+      return true;
+    } else {
+      return false; //{6}
+    }
+  };
+  this.removeAt = function (position) {
+    //check for out-of-bounds values
+    if position > -1 && position < length { //{1}
+      var current = head, //{2}
+          previous, //{3}
+          index = 0; //{4}
+
+      //removing first item
+      if (position === 0) { //{5}
+        head = current.next;
+      } else {
+        while (index++ < position){ //{6}
+          previous = current; //{7}
+          current = current.next; //{8}
+        }
+
+        //link previous with current's next: skip it to remove
+        previous.next = current.next;
+      }
+
+      length--; //{10}\
+      return current.element;
+    } else {
+      return null; //{11}
+    }
+  };
   this.remove = function (element) {};
   this.indexOf = function (element) {};
   this.isEmpty = function () {};
