@@ -29,7 +29,7 @@ function LinkedList() {
   };
   this.insert = function (position, element) {
     //check for out-of-bounds values
-    if position > -1 && position < length { //{1}
+    if (position > -1 && position < length) { //{1}
       var node = new Node(element),
           current = head,
           previous,
@@ -55,7 +55,7 @@ function LinkedList() {
   };
   this.removeAt = function (position) {
     //check for out-of-bounds values
-    if position > -1 && position < length { //{1}
+    if (position > -1 && position < length) { //{1}
       var current = head, //{2}
           previous, //{3}
           index = 0; //{4}
@@ -121,3 +121,4 @@ function LinkedList() {
 var list = new LinkedList();
 list.append(15);
 list.append(10);
+console.log(list);
