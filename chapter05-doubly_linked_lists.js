@@ -70,25 +70,26 @@ function DoublyLinkedList() {
         } else {
           head.prev = null;
         }
-    } else if (position === length-1) { //last item
-      current = tail;
-      tail = current.prev;
-      tail.next = null;
-    } else {
-      while (index++ < position) {
-        previous = current;
-        current = current.next;
+      } else if (position === length-1) { //last item
+        current = tail;
+        tail = current.prev;
+        tail.next = null;
+      } else {
+        while (index++ < position) {
+          previous = current;
+          current = current.next;
+        }
+
+        //link previous with current's next - skip it
+        previous.next = current.next;
+        current.next.prev = previous;
       }
 
-      //link previous with current's next - skip it
-      previous.next = current.next;
-      current.next.prev = previous;
+      length--;
+      return current.element;
+    } else {
+      return null;
     }
-
-    length--;
-    return current.element;
-  } else {
-    return null;
   }
 };
 
