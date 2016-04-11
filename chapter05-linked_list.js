@@ -104,11 +104,11 @@ function LinkedList() {
     return length;
   };
   this.toString = function () {
-    var current = head, //{1}
+    var current = this.getHead(), //{1}
         string = '';    //{2}
 
     while (current) { //{3}
-      string = current.element; //{4}
+      string += current.element + (current.next + ', ': ''); //{4}
       current = current.next;   //{5}
     }
     return string;              //{6}
